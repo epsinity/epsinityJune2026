@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+#root {
+  --font-display: "Poppins", sans-serif;
+}
+
+* {
+  font-family: var(--font-display);
+}
+
+/* Firefox scrollbar styles */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: #0000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #cccaca4f;
+  background-image: linear-gradient(
+      rgba(21, 30, 44, 0.133) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(11, 16, 24, 0.118) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.tag {
+  /* font-family: var(--font-mono); */
+  font-size: 1.5em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+@media (max-width: 768px) {
+  .tag {
+    /* font-family: var(--font-mono); */
+    font-size: 0.98em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+  }
+}
+
+.tag::before {
+  content: "";
+  width: 200px;
+  height: 1.8px;
+  background: #181818;
+  opacity: 0.6;
+  display: inline-block;
+}
+.tag::after {
+  content: "";
+  width: 200px;
+  height: 1.8px;
+  background: #181818;
+  opacity: 0.6;
+  display: inline-block;
+}
+
+.image-shadow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(7, 6, 6, 0.363);
+  filter: blur(10px);
+  /* transform: translate(5px, 5px); */
+  pointer-events: none;
+  z-index: 10;
+}
+
+.video-shadow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background-color: rgba(228, 228, 228, 0.00); 
+  filter: blur(2px);
+  transform: translate(5px, 5px); */
+  pointer-events: none;
+  z-index: 10;
+}
+
+.case-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(11, 16, 24, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Modal Container ────────────────────────────────────────────────────── */
+.case-modal {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.829);
+  border: 1px solid var(--color-rule);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 24px 80px rgba(11, 16, 24, 0.35), 0 8px 32px rgba(11, 16, 24, 0.18);
+  /* Firefox scrollbar styles */
+  scrollbar-width: thin;
+  scrollbar-color: #000 rgba(255, 255, 255, 0.829);
+}
+
+.case-modal::-webkit-scrollbar {
+  width: 3px;
+}
+
+.case-modal::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+/* ─── Close Button ───────────────────────────────────────────────────────── */
+.case-modal-close {
+  position: sticky;
+  top: 1rem;
+  float: right;
+  margin-right: 1rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-rule);
+  color: var(--color-muted);
+  background: var(--color-bg2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.case-modal-close:hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-color: var(--color-primary);
+}
+
+/* ─── Modal Header ───────────────────────────────────────────────────────── */
+.case-modal-header {
+  padding: 2.1rem 2rem 0;
+  border-bottom: 1px solid var(--color-rule);
+  padding-bottom: 1.1rem;
+}
+
+.case-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  /* font-family: var(--font-mono); */
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.case-modal-num {
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.case-modal-divider {
+  width: 18px;
+  height: 1px;
+  background: #000;
+}
+
+.case-modal-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.8rem;
+}
+
+.case-modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  /* font-family: var(--font-mono); */
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.case-modal-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #000;
+}
+
+/* ─── Modal Body ─────────────────────────────────────────────────────────── */
+.case-modal-body {
+  padding: 0.5rem 2.4rem 2.4rem;
+}
+
+.case-modal-section {
+  margin-bottom: 2rem;
+}
+
+.case-modal-section:last-child {
+  margin-bottom: 0;
+}
+
+.case-modal-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.case-modal-section-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.case-modal-text {
+  /* font-family: var(--font-mono); */
+  font-size: 0.72rem;
+  line-height: 1.75;
+  color: var(--color-dim);
+}
+
+/* ─── Approach List ──────────────────────────────────────────────────────── */
+.case-modal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.case-modal-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  /* font-family: var(--font-mono); */
+  font-size: 0.68rem;
+  line-height: 1.65;
+  color: var(--color-dim);
+  padding: 0.6rem 0.85rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  transition: border-color 0.2s ease;
+}
+
+.case-modal-list-item:hover {
+  border-color: var(--color-accent);
+}
