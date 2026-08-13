@@ -73,7 +73,7 @@ export default function About() {
                   </p>
 
                   <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-black/70">
-                    Co-Founder & Managing Director
+                    Founder & Managing Director
                   </p>
                 </div>
               </div>
