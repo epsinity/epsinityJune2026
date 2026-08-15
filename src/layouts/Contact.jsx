@@ -81,7 +81,7 @@ export default function Contact() {
           data-hover
           className="mx-auto my-5 font-mono"
         >
-          epsinity@gmail.com
+          contact@epsinity.com
         </a>
       </div>
       <div
