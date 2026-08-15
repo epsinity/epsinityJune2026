@@ -77,7 +77,7 @@ export default function Contact() {
       <div className="flex flex-col w-full md:w-1/3 mt-10 md:mt-0 items-center justify-center  z-10 rounded-2xl h-110 md:mx-auto">
         <img src="/logo.svg" className="w-30 mx-auto" alt="" />
         <a
-          href="mailto:epsinity@gmail.com"
+          href="mailto:contact@epsinity.com"
           data-hover
           className="mx-auto my-5 font-mono"
         >
